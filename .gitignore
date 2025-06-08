@@ -1,0 +1,169 @@
+# Operating System
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+
+# IDE and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.metadata
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Node.js (Frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+.next/
+out/
+build/
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Rust (Backend)
+target/
+Cargo.lock
+**/*.rs.bk
+
+# Python (AI Modules)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# Haskell (Strategy Engine)
+dist/
+dist-*/
+cabal-dev
+*.o
+*.hi
+*.dyn_o
+*.dyn_hi
+.hpc
+.hsenv
+.cabal-sandbox/
+cabal.sandbox.config
+*.prof
+*.aux
+*.hp
+*.eventlog
+.stack-work/
+cabal.project.local
+cabal.project.local~
+.HTF/
+.ghc.environment.*
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Trading and Financial Data
+data/
+*.csv
+historical_data/
+market_data/
+backtest_results/
+
+# CUDA
+*.cubin
+*.fatbin
+*.ptx
+
+# API Keys and Secrets
+secrets/
+keys/
+*.pem
+*.key
+config/secrets.yaml
+.env.production
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+
+# MacOS
+.AppleDouble
+.LSOverride
+
+# Windows
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+
+# Linux
+*~
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Local development
+.local/
+local_config.yaml 

@@ -1,9 +1,9 @@
 # LynxTrader
 **Tagline: Agile. Smart. Precise.**
 
-![Image](https://github.com/user-attachments/assets/1d5b987e-b51a-4237-9684-8a8fc7da077e)
-
 An AI-enhanced, high-performance algorithmic trading platform for scalping, day trading, and swing trading—optimized for price action, built with Rust, Haskell, Python, CUDA, and modern web.
+
+![Image](https://github.com/user-attachments/assets/4e053091-abfa-46f0-a75d-00e7840af069)
 
 ## System Architecture
 

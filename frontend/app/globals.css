@@ -1,29 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import 'katex/dist/katex.min.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
-    --destructive: 0 84.2% 60.2%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 
   .dark {
@@ -54,6 +60,286 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-cyber-gradient text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Cyber-themed scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0f1a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #00ffff, #39ff14);
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #00d4ff, #32e612);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+/* Custom KaTeX styling for cyber theme */
+.katex {
+  font-size: 1em !important;
+  color: #00ffff !important;
+}
+
+.katex .mord {
+  color: #39ff14 !important;
+}
+
+.katex .mop {
+  color: #ff007f !important;
+}
+
+.katex .mbin {
+  color: #ffff00 !important;
+}
+
+.katex .mrel {
+  color: #ff6600 !important;
+}
+
+.katex .mopen, .katex .mclose {
+  color: #bf00ff !important;
+}
+
+/* Matrix rain animation */
+.matrix-char {
+  color: #00ff41;
+  text-shadow: 0 0 5px #00ff41;
+  animation: matrix-glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes matrix-glow {
+  0% { 
+    opacity: 0.5;
+    text-shadow: 0 0 5px #00ff41;
+  }
+  100% { 
+    opacity: 1;
+    text-shadow: 0 0 20px #00ff41, 0 0 30px #00ff41;
+  }
+}
+
+/* Cyber glow effects */
+.cyber-glow {
+  text-shadow: 0 0 5px currentColor, 0 0 20px currentColor, 0 0 35px currentColor;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.cyber-glow-border {
+  box-shadow: 
+    0 0 5px currentColor,
+    0 0 20px currentColor,
+    0 0 35px currentColor,
+    inset 0 0 5px currentColor;
+  border: 1px solid currentColor;
+}
+
+/* Holographic effect */
+.hologram {
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(0, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  background-size: 200% 200%;
+  animation: hologram-sweep 3s linear infinite;
+}
+
+@keyframes hologram-sweep {
+  0% { background-position: -200% -200%; }
+  100% { background-position: 200% 200%; }
+}
+
+/* Cyber terminal cursor */
+.terminal-cursor::after {
+  content: '▊';
+  color: #00ffff;
+  animation: cursor-blink 1s infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Data stream effect */
+.data-stream {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.1),
+    rgba(57, 255, 20, 0.1),
+    rgba(255, 0, 127, 0.1),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: data-stream 8s linear infinite;
+}
+
+@keyframes data-stream {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Hexagon grid background */
+.hex-grid {
+  background-image: 
+    linear-gradient(30deg, rgba(0, 255, 255, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(0, 255, 255, 0.1) 87.5%, rgba(0, 255, 255, 0.1)),
+    linear-gradient(150deg, rgba(0, 255, 255, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(0, 255, 255, 0.1) 87.5%, rgba(0, 255, 255, 0.1)),
+    linear-gradient(30deg, rgba(0, 255, 255, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(0, 255, 255, 0.1) 87.5%, rgba(0, 255, 255, 0.1)),
+    linear-gradient(150deg, rgba(0, 255, 255, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(0, 255, 255, 0.1) 87.5%, rgba(0, 255, 255, 0.1));
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+}
+
+/* Progress bar cyber styling */
+.progress-cyber {
+  background: linear-gradient(90deg, 
+    rgba(0, 255, 255, 0.1),
+    rgba(57, 255, 20, 0.2),
+    rgba(255, 0, 127, 0.1)
+  );
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: 
+    inset 0 0 10px rgba(0, 255, 255, 0.2),
+    0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+.progress-cyber .progress-bar {
+  background: linear-gradient(90deg, #00ffff, #39ff14, #ff007f);
+  box-shadow: 0 0 20px currentColor;
+  animation: progress-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes progress-glow {
+  0% { box-shadow: 0 0 5px currentColor; }
+  100% { box-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+}
+
+/* Card hover effects */
+.cyber-card {
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  background: rgba(15, 15, 26, 0.8);
+}
+
+.cyber-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 10px 30px rgba(0, 255, 255, 0.3),
+    0 0 50px rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.6);
+}
+
+/* Button cyber styling */
+.btn-cyber {
+  background: linear-gradient(45deg, rgba(0, 255, 255, 0.1), rgba(57, 255, 20, 0.1));
+  border: 1px solid rgba(0, 255, 255, 0.5);
+  color: #00ffff;
+  text-transform: uppercase;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cyber::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-cyber:hover::before {
+  left: 100%;
+}
+
+.btn-cyber:hover {
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 0.5),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
+  text-shadow: 0 0 10px currentColor;
+}
+
+/* Glitch effect */
+.glitch {
+  position: relative;
+  color: #00ffff;
+  font-weight: 900;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  animation: glitch-1 2s infinite;
+  color: #ff007f;
+  z-index: -1;
+}
+
+.glitch::after {
+  animation: glitch-2 2s infinite;
+  color: #39ff14;
+  z-index: -2;
+}
+
+@keyframes glitch-1 {
+  0%, 14%, 15%, 49%, 50%, 99%, 100% {
+    transform: translate(0);
+  }
+  15%, 49% {
+    transform: translate(-2px, 2px);
+  }
+}
+
+@keyframes glitch-2 {
+  0%, 20%, 21%, 62%, 63%, 99%, 100% {
+    transform: translate(0);
+  }
+  21%, 62% {
+    transform: translate(2px, -2px);
+  }
+}
+
+/* Responsive cyber grid */
+@media (max-width: 768px) {
+  .cyber-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .matrix-rain {
+    opacity: 0.05;
+  }
+  
+  .cyber-glow {
+    text-shadow: 0 0 3px currentColor, 0 0 10px currentColor;
   }
 } 

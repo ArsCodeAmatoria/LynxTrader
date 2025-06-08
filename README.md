@@ -32,6 +32,13 @@ LynxTrader is a sophisticated AI-enhanced algorithmic trading platform that comb
 ## 🚀 Cyber Interface Preview
 
 <div align="center">
+  <img src="https://github.com/user-attachments/assets/4e053091-abfa-46f0-a75d-00e7840af069" alt="LynxTrader Cyber Dashboard Interface" width="900" />
+  <p><em>⚡ Live screenshot of the LynxTrader cyber-enhanced trading dashboard ⚡</em></p>
+</div>
+
+### 🎮 **ASCII Dashboard Mockup**
+
+<div align="center">
 
 ```
 ╔══════════════════════════════════════════════════════════════════════════════════╗

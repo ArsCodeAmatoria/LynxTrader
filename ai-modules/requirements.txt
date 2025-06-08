@@ -7,8 +7,8 @@ pandas>=2.0.0
 
 # Deep Learning & Neural Networks
 transformers>=4.30.0
-torch-audio>=2.0.0
-torch-vision>=0.15.0
+torchaudio>=2.0.0
+torchvision>=0.15.0
 
 # Financial Data & Trading
 yfinance>=0.2.18

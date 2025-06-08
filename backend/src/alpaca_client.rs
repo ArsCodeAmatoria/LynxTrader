@@ -320,9 +320,10 @@ impl AlpacaClient {
         if response.status().is_success() {
             Ok(())
         } else {
+            let status_code = response.status().as_u16();
             let error_text = response.text().await?;
             Err(AlpacaError::ApiError {
-                code: response.status().as_u16(),
+                code: status_code,
                 message: error_text,
             })
         }

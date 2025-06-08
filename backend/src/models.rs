@@ -21,7 +21,7 @@ pub struct BotStatus {
     pub trades: u32,
 }
 
-#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum TradeType {
     Buy,
     Sell,

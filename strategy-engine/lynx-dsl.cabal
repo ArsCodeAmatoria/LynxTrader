@@ -5,7 +5,6 @@ version:        0.1.0.0
 description:    LynxTrader Strategy DSL - Embedded Domain Specific Language for algorithmic trading strategies
 homepage:       https://github.com/lynxtrader/lynx-dsl
 license:        MIT
-license-file:   LICENSE
 author:         LynxTrader Team
 maintainer:     team@lynxtrader.com
 copyright:      2024 LynxTrader
@@ -19,14 +18,10 @@ extra-source-files:
 library
   exposed-modules:
       LynxDSL
-      LynxDSL.Core
-      LynxDSL.Strategy
-      LynxDSL.Indicators
-      LynxDSL.BackTest
-      LynxDSL.Parser
-      LynxDSL.Compiler
       LynxDSL.Types
-      LynxDSL.Risk
+      LynxDSL.Engine
+      LynxDSL.Builder
+      LynxDSL.Indicators
       
   other-modules:
       Paths_lynx_dsl
@@ -37,43 +32,12 @@ library
   build-depends:
       base >=4.7 && <5
     , text
-    , bytestring
     , containers
-    , vector
     , time
-    , scientific
-    , aeson
-    , yaml
-    , parsec
-    , megaparsec >=9.0
-    , parser-combinators
-    , transformers
-    , mtl
-    , monad-control
-    , exceptions
-    , lens
-    , pretty-simple
-    , conduit
-    , conduit-extra
-    , resourcet
-    , stm
-    , async
-    , safe
-    , filepath
-    , directory
     
   default-language: Haskell2010
   
-  ghc-options: 
-    -Wall 
-    -Wcompat 
-    -Widentities 
-    -Wincomplete-record-updates 
-    -Wincomplete-uni-patterns 
-    -Wmissing-export-lists 
-    -Wmissing-home-modules 
-    -Wpartial-fields 
-    -Wredundant-constraints
+  ghc-options: -Wall
 
 executable lynx-dsl-exe
   main-is: Main.hs
@@ -83,8 +47,8 @@ executable lynx-dsl-exe
   build-depends:
       base >=4.7 && <5
     , lynx-dsl
-    , optparse-applicative
     , text
+    , time
     
   default-language: Haskell2010
 

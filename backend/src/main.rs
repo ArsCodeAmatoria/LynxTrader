@@ -12,6 +12,7 @@ mod trade_signal_router;
 mod risk_manager;
 mod models;
 mod websocket;
+mod alpaca_client;
 
 #[tokio::main]
 async fn main() {

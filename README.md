@@ -33,9 +33,10 @@ An AI-enhanced, high-performance algorithmic trading platform for scalping, day 
   - `OrderExecutor.rs`
   - `TradeSignalRouter.rs`
   - `RiskManager.rs`
+  - `AlpacaClient.rs`: Commission-free trading via Alpaca Markets
 - **Broker Integration**:
+  - **Alpaca Markets** - Commission-free stocks, ETFs, crypto, options
   - Interactive Brokers (Canada) - Ready
-  - Alpaca (Sim mode) - Ready
   - Wealthsimple (limited) - Partial
 
 ### CUDA Backtest Engine
@@ -44,19 +45,60 @@ An AI-enhanced, high-performance algorithmic trading platform for scalping, day 
 - Integration with Python/Rust for analysis
 
 ### AI & Data Modules (Python)
-- `model_trainer.py`: Train LSTMs, CNNs, Transformers
+- `model_trainer.py`: Train LSTMs, CNNs, Transformers with TensorBoard visualization
+- `tb_monitor.py`: Real-time TensorBoard monitoring of trading performance
 - `sentiment_scraper.py`: Social media sentiment analysis
 - `recommender.py`: Strategy-instrument pairing recommendations
 
+## Trading Infrastructure
+
+### Alpaca Markets Integration
+LynxTrader integrates with [Alpaca Markets](https://alpaca.markets/) for commission-free trading:
+
+- **Paper Trading**: Test strategies risk-free with $100k virtual account
+- **Live Trading**: Commission-free stocks, ETFs, options, and crypto
+- **Real-time Data**: Market data and price feeds
+- **Order Types**: Market, limit, stop, bracket orders with stop-loss/take-profit
+- **OAuth Security**: Secure API authentication
+- **24/5 Trading**: Extended hours trading support
+
+**Features**:
+- Commission-free trading for all supported assets
+- Fractional share trading for position sizing
+- Advanced order types (bracket, OCO, trailing stop)
+- Real-time market data and historical bars
+- Paper trading environment for strategy testing
+- Margin and short selling capabilities
+
+### TensorBoard Monitoring
+Real-time visualization of trading performance and AI model metrics:
+
+```bash
+# Start TensorBoard monitoring
+cd ai-modules
+python tb_monitor.py
+
+# View dashboard
+tensorboard --logdir=tensorboard_logs
+# Open http://localhost:6006
+```
+
+**Metrics Tracked**:
+- Trading P&L and performance
+- AI model accuracy and predictions
+- Bot performance comparison
+- Risk metrics and drawdown
+- Feature importance analysis
+
 ## Supported Instruments
 
-| Asset Type | Recommended Use | Reason |
-|------------|----------------|---------|
-| Crypto (BTC, ETH, SOL) | Scalping, 24/7 | Fractional, high-vol |
-| TSX/US Stocks | Day/Swing | With fractional or sim mode |
-| Forex | Day trading | Leverage, volume |
-| ETFs (SPY, QQQ) | Swing | Safer, predictable |
-| Options (paper only) | Swing | Risky but educational |
+| Asset Type | Recommended Use | Alpaca Support | Reason |
+|------------|----------------|----------------|---------|
+| Crypto (BTC, ETH, SOL) | Scalping, 24/7 | Yes - Commission-free | Fractional, high-vol |
+| TSX/US Stocks | Day/Swing | Yes - Commission-free | With fractional or sim mode |
+| Forex | Day trading | No | Leverage, volume |
+| ETFs (SPY, QQQ) | Swing | Yes - Commission-free | Safer, predictable |
+| Options (paper only) | Swing | Yes - Commission-free | Risky but educational |
 
 ## Money Management Model
 
@@ -72,6 +114,7 @@ An AI-enhanced, high-performance algorithmic trading platform for scalping, day 
 - Replay real market sessions in "ghost" mode
 - Visualization of entry/exit timing and missed trades
 - AI adjustment tracking with TensorBoard/Streamlit
+- Alpaca paper trading with $100k virtual account
 
 ## Hosting Plan
 
@@ -116,7 +159,30 @@ cargo run
 # AI modules setup
 cd ../ai-modules
 pip install -r requirements.txt
+
+# Start TensorBoard monitoring
+python tb_monitor.py
+
+# Train models with visualization
 python model_trainer.py
+
+# View TensorBoard dashboard
+tensorboard --logdir=tensorboard_logs
+```
+
+## Environment Variables
+
+Create `.env` files for API keys:
+
+```bash
+# Alpaca API (get from https://alpaca.markets/)
+ALPACA_API_KEY=your_api_key
+ALPACA_SECRET_KEY=your_secret_key
+ALPACA_PAPER_TRADING=true  # Set to false for live trading
+
+# Database
+DATABASE_URL=postgresql://localhost/lynxtrader
+REDIS_URL=redis://localhost:6379
 ```
 
 ## Project Structure
@@ -125,8 +191,14 @@ python model_trainer.py
 LynxTrader/
 ├── frontend/           # Next.js UI
 ├── backend/           # Rust execution engine
+│   └── src/
+│       ├── alpaca_client.rs  # Alpaca Markets integration
+│       ├── risk_manager.rs   # Position sizing & risk
+│       └── order_executor.rs # Order routing
 ├── strategy-engine/   # Haskell DSL
 ├── ai-modules/        # Python ML components
+│   ├── model_trainer.py      # LSTM/CNN training
+│   └── tb_monitor.py         # TensorBoard monitoring
 ├── cuda-engine/       # CUDA backtesting
 └── docs/             # Documentation
 ```

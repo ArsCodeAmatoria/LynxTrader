@@ -1,0 +1,65 @@
+name: lynxtrader-strategy-engine
+version: 0.1.0.0
+github: "ArsCodeAmatoria/LynxTrader"
+license: MIT
+author: "LynxTrader Team"
+maintainer: "team@lynxtrader.io"
+copyright: "2024 LynxTrader"
+
+extra-source-files:
+- README.md
+
+synopsis: Advanced algorithmic trading strategy engine
+category: Finance
+
+description: |
+  LynxTrader Strategy Engine - Agile. Smart. Precise.
+  
+  Advanced Haskell-based strategy engine supporting:
+  - Scalping strategies (1-5min timeframes)
+  - Day trading strategies (5-15min timeframes) 
+  - Smart money institutional strategies
+  - AI-enhanced risk management
+  - Real-time market data processing
+
+dependencies:
+- base >= 4.7 && < 5
+- containers >= 0.6
+- time >= 1.9
+- text >= 1.2
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+executables:
+  lynxtrader-strategy-engine:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - lynxtrader-strategy-engine
+
+tests:
+  lynxtrader-strategy-engine-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - lynxtrader-strategy-engine 

@@ -1,0 +1,82 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.38.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           lynxtrader-strategy-engine
+version:        0.1.0.0
+synopsis:       Advanced algorithmic trading strategy engine
+description:    LynxTrader Strategy Engine - Agile. Smart. Precise.
+                .
+                Advanced Haskell-based strategy engine supporting:
+                - Scalping strategies (1-5min timeframes)
+                - Day trading strategies (5-15min timeframes) 
+                - Smart money institutional strategies
+                - AI-enhanced risk management
+                - Real-time market data processing
+category:       Finance
+homepage:       https://github.com/ArsCodeAmatoria/LynxTrader#readme
+bug-reports:    https://github.com/ArsCodeAmatoria/LynxTrader/issues
+author:         LynxTrader Team
+maintainer:     team@lynxtrader.io
+copyright:      2024 LynxTrader
+license:        MIT
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/ArsCodeAmatoria/LynxTrader
+
+library
+  exposed-modules:
+      LynxTrader.LynxDSL
+      LynxTrader.RiskManagement.AIRiskOverlay
+      LynxTrader.Strategies.DayTradingStrategies
+      LynxTrader.Strategies.ScalpingStrategies
+      LynxTrader.Strategies.SmartMoneyStrategies
+      LynxTrader.Types
+  other-modules:
+      Paths_lynxtrader_strategy_engine
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , containers >=0.6
+    , text >=1.2
+    , time >=1.9
+  default-language: Haskell2010
+
+executable lynxtrader-strategy-engine
+  main-is: Main.hs
+  other-modules:
+      Paths_lynxtrader_strategy_engine
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers >=0.6
+    , lynxtrader-strategy-engine
+    , text >=1.2
+    , time >=1.9
+  default-language: Haskell2010
+
+test-suite lynxtrader-strategy-engine-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_lynxtrader_strategy_engine
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers >=0.6
+    , lynxtrader-strategy-engine
+    , text >=1.2
+    , time >=1.9
+  default-language: Haskell2010

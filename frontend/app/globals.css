@@ -59,9 +59,52 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    background: #0f0f1a;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(57, 255, 20, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(255, 0, 127, 0.1) 0%, transparent 50%);
+    min-height: 100vh;
+    overscroll-behavior: none; /* Prevent overscroll bounce */
+  }
+  
   body {
     @apply bg-cyber-gradient text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    min-height: 100vh;
+    overscroll-behavior: none; /* Prevent overscroll bounce */
+    background-attachment: fixed; /* Keep background fixed during scroll */
+  }
+  
+  /* Prevent white background on overscroll */
+  #__next {
+    min-height: 100vh;
+    background: inherit;
+  }
+  
+  /* Additional overscroll protection */
+  html, body {
+    overscroll-behavior-y: none; /* Prevent pull-to-refresh and overscroll glow */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+  
+  /* Ensure cyber background on all scroll states */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    right: 0;
+    bottom: -100vh;
+    background: #0f0f1a;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(57, 255, 20, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(255, 0, 127, 0.1) 0%, transparent 50%);
+    z-index: -1000;
+    pointer-events: none;
   }
 }
 

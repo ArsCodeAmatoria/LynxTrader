@@ -16,9 +16,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <div className="min-h-screen bg-background">
+    <html lang="en" className="dark">
+      <body className={`${inter.className} bg-cyber-gradient`}>
+        <div className="min-h-screen bg-cyber-gradient relative">
+          {/* Matrix rain background layer */}
+          <div className="fixed inset-0 bg-cyber-gradient pointer-events-none -z-10" />
           {children}
         </div>
       </body>

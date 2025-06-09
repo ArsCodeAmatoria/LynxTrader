@@ -418,17 +418,32 @@ export default function DashboardHome() {
                   <CartesianGrid strokeDasharray="3 3" stroke="#1a1a2e" />
                   <XAxis dataKey="time" stroke="#00ffff" fontSize={10} />
                   <YAxis stroke="#00ffff" fontSize={10} />
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: '#0f0f1a', 
-                      border: '1px solid #00ffff',
-                      borderRadius: '8px',
-                      color: '#00ffff',
-                      fontFamily: 'monospace'
-                    }}
-                    formatter={(value: number) => [`$${value.toFixed(2)}`, 'P&L']}
-                    labelFormatter={(label) => `TIME: ${label}`}
-                  />
+                                  <Tooltip 
+                  contentStyle={{ 
+                    backgroundColor: '#0f0f1a !important', 
+                    border: '1px solid #00ffff !important',
+                    borderRadius: '8px',
+                    color: '#00ffff !important',
+                    fontFamily: 'Fira Code, monospace',
+                    boxShadow: '0 0 20px rgba(0, 255, 255, 0.3)',
+                    backdropFilter: 'blur(10px)'
+                  }}
+                  wrapperStyle={{
+                    backgroundColor: 'transparent !important',
+                    border: 'none !important'
+                  }}
+                  labelStyle={{
+                    color: '#ff007f !important',
+                    fontWeight: 'bold',
+                    backgroundColor: 'transparent !important'
+                  }}
+                  itemStyle={{
+                    color: '#00ffff !important',
+                    backgroundColor: 'transparent !important'
+                  }}
+                  formatter={(value: number) => [`$${value.toFixed(2)}`, 'P&L']}
+                  labelFormatter={(label) => `TIME: ${label}`}
+                />
                   <Area 
                     type="monotone" 
                     dataKey="cumulative" 
@@ -508,11 +523,26 @@ export default function DashboardHome() {
                 <YAxis stroke="#39ff14" fontSize={10} />
                 <Tooltip 
                   contentStyle={{ 
-                    backgroundColor: '#0f0f1a', 
-                    border: '1px solid #39ff14',
+                    backgroundColor: '#0f0f1a !important', 
+                    border: '1px solid #39ff14 !important',
                     borderRadius: '8px',
-                    color: '#39ff14',
-                    fontFamily: 'monospace'
+                    color: '#39ff14 !important',
+                    fontFamily: 'Fira Code, monospace',
+                    boxShadow: '0 0 20px rgba(57, 255, 20, 0.3)',
+                    backdropFilter: 'blur(10px)'
+                  }}
+                  wrapperStyle={{
+                    backgroundColor: 'transparent !important',
+                    border: 'none !important'
+                  }}
+                  labelStyle={{
+                    color: '#ff007f !important',
+                    fontWeight: 'bold',
+                    backgroundColor: 'transparent !important'
+                  }}
+                  itemStyle={{
+                    color: '#39ff14 !important',
+                    backgroundColor: 'transparent !important'
                   }}
                   formatter={(value: number, name: string) => {
                     if (name === 'pnl') return [`$${value.toFixed(2)}`, 'P&L']

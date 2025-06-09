@@ -143,10 +143,10 @@ export default function DashboardHome() {
   const [strategyStatuses, setStrategyStatuses] = useState<StrategyStatus[]>([
     { 
       id: '1', 
-      name: 'VWAP Bounce Scalper', 
+      name: 'SCALP: VWAP Bounce', 
       type: 'scalping', 
       status: 'active', 
-      strategy: 'VWAP + Volume Spike', 
+      strategy: 'Scalping • 1-5min • VWAP + Volume Spike', 
       pnl: 234.67, 
       trades: 45, 
       winRate: 68.9, 
@@ -156,10 +156,10 @@ export default function DashboardHome() {
     },
     { 
       id: '2', 
-      name: 'Opening Range Breakout', 
+      name: 'DAY: Opening Range Breakout', 
       type: 'day-trading', 
       status: 'active', 
-      strategy: 'ORB 30min + Volume', 
+      strategy: 'Day Trading • 5-30min • ORB + Volume Confirmation', 
       pnl: 456.78, 
       trades: 23, 
       winRate: 78.3, 
@@ -169,10 +169,10 @@ export default function DashboardHome() {
     },
     { 
       id: '3', 
-      name: 'Liquidity Grab Reversal', 
+      name: 'SWING: Liquidity Grab Reversal', 
       type: 'smart-money', 
       status: 'active', 
-      strategy: 'Order Flow + Liquidity', 
+      strategy: 'Swing Trading • 1-4hr • Smart Money Concepts', 
       pnl: 678.90, 
       trades: 18, 
       winRate: 83.3, 
@@ -182,10 +182,10 @@ export default function DashboardHome() {
     },
     { 
       id: '4', 
-      name: 'Fair Value Gap Fill', 
+      name: 'SWING: Fair Value Gap Fill', 
       type: 'smart-money', 
       status: 'active', 
-      strategy: 'Imbalance + Continuation', 
+      strategy: 'Swing Trading • 30min-2hr • Imbalance Correction', 
       pnl: 345.67, 
       trades: 14, 
       winRate: 85.7, 
@@ -195,10 +195,10 @@ export default function DashboardHome() {
     },
     { 
       id: '5', 
-      name: 'Micro Breakout Trap', 
+      name: 'SCALP: Micro Breakout Trap', 
       type: 'scalping', 
       status: 'paused', 
-      strategy: 'Range Break + Volume', 
+      strategy: 'Scalping • 1-3min • Range Break + Volume Trap', 
       pnl: 123.45, 
       trades: 32, 
       winRate: 65.6, 
@@ -257,8 +257,17 @@ export default function DashboardHome() {
     }
   }
 
+  const getTypeLabel = (type: string) => {
+    switch (type) {
+      case 'scalping': return 'SCALP'
+      case 'day-trading': return 'DAY'
+      case 'smart-money': return 'SWING'
+      default: return 'UNKNOWN'
+    }
+  }
+
   const strategyPerformanceData = strategyStatuses.map(strategy => ({
-    name: strategy.name.split(' ')[0],
+    name: strategy.name.split(':')[0], // Show the trading type prefix (SCALP, DAY, SWING)
     pnl: strategy.pnl,
     winRate: strategy.winRate,
     trades: strategy.trades

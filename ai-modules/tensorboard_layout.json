@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "layouts": [
+    {
+      "category": "scalars",
+      "title": "\ud83d\udd3b Shorting Strategies Overview",
+      "charts": [
+        {
+          "title": "Unrealized P&L by Strategy",
+          "multiChart": true,
+          "tag": "Shorting/.*/Unrealized_PnL"
+        },
+        {
+          "title": "AI Confidence Levels",
+          "multiChart": true,
+          "tag": "Shorting/.*/AI_Confidence"
+        }
+      ]
+    },
+    {
+      "category": "scalars",
+      "title": "\ud83e\udde0 AI Model Performance",
+      "charts": [
+        {
+          "title": "Model Accuracy Comparison",
+          "multiChart": true,
+          "tag": "AI_Models/.*/Accuracy"
+        },
+        {
+          "title": "Model Drift Detection",
+          "multiChart": true,
+          "tag": "AI_Models/.*/Model_Drift"
+        }
+      ]
+    },
+    {
+      "category": "scalars",
+      "title": "\u26a0\ufe0f Risk Monitoring",
+      "charts": [
+        {
+          "title": "Portfolio Risk Metrics",
+          "multiChart": true,
+          "tag": "Risk/(Portfolio_Heat|Max_Drawdown|VaR_.*)"
+        },
+        {
+          "title": "Position Sizing",
+          "multiChart": true,
+          "tag": "Position_Sizing/.*"
+        }
+      ]
+    }
+  ]
+}

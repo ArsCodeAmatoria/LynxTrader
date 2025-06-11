@@ -1,0 +1,75 @@
+{
+  "shorting_strategies": {
+    "title": "\ud83d\udd3b Shorting Strategies Dashboard",
+    "layout": {
+      "scalars": [
+        "Shorting/*/Unrealized_PnL",
+        "Shorting/*/AI_Confidence",
+        "Shorting/*/Volume_Confirmation",
+        "Shorting/*/Liquidity_Score",
+        "Shorting/*/Risk_Score"
+      ],
+      "images": [
+        "Advanced_Plots/Shorting_Strategy_Heatmap"
+      ],
+      "histograms": [
+        "Risk/Portfolio_Heat",
+        "Risk/VaR_95"
+      ]
+    },
+    "refresh_interval": 15,
+    "description": "Real-time monitoring of shorting strategy performance"
+  },
+  "ai_models": {
+    "title": "\ud83e\udde0 AI Models Performance",
+    "layout": {
+      "scalars": [
+        "AI_Models/*/Accuracy",
+        "AI_Models/*/F1_Score",
+        "AI_Models/*/Confidence",
+        "AI_Models/*/Model_Drift"
+      ],
+      "images": [
+        "Advanced_Plots/AI_Model_Radar"
+      ],
+      "histograms": [
+        "Features/*/volume_profile",
+        "Features/*/price_action",
+        "Features/*/market_structure"
+      ]
+    },
+    "refresh_interval": 30,
+    "description": "AI model accuracy, drift detection, and feature importance"
+  },
+  "risk_management": {
+    "title": "\u26a0\ufe0f Risk Management Dashboard",
+    "layout": {
+      "scalars": [
+        "Risk/Portfolio_Heat",
+        "Risk/Max_Drawdown",
+        "Risk/VaR_95",
+        "Risk/VaR_99",
+        "Risk/Beta",
+        "Risk/Kelly_Fraction"
+      ],
+      "histograms": [
+        "Position_Sizing/*"
+      ]
+    },
+    "refresh_interval": 20,
+    "description": "Portfolio risk metrics and position sizing optimization"
+  },
+  "market_overview": {
+    "title": "\ud83d\udcc8 Market Overview",
+    "layout": {
+      "scalars": [
+        "Market/Trend_Strength",
+        "Market/Breadth",
+        "Market/Fear_Greed_Index",
+        "Market/VIX_Level"
+      ]
+    },
+    "refresh_interval": 60,
+    "description": "Market regime and volatility monitoring"
+  }
+}

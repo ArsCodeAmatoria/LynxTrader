@@ -51,7 +51,7 @@ interface StrategyStatus {
   id: string
   name: string
   type: 'scalping' | 'day-trading' | 'smart-money'
-  status: 'active' | 'paused' | 'error'
+  status: 'active' | 'paused' | 'error' | 'triggered'
   strategy: string
   pnl: number
   trades: number
@@ -141,6 +141,7 @@ export default function DashboardHome() {
   })
 
   const [strategyStatuses, setStrategyStatuses] = useState<StrategyStatus[]>([
+    // Long Strategies
     { 
       id: '1', 
       name: 'SCALP: VWAP Bounce', 
@@ -193,6 +194,72 @@ export default function DashboardHome() {
       allocation: 20,
       formula: 'FVG = |P_{high}^{i-1} - P_{low}^{i+1}|, \\quad Fill = 0.5 \\cdot FVG'
     },
+    // Shorting Strategies 
+    { 
+      id: '6', 
+      name: 'SHORT: Fake Breakout Reversal', 
+      type: 'scalping', 
+      status: 'active', 
+      strategy: 'Scalping • 1-5min • Fake Highs on Low Volume', 
+      pnl: 432.67, 
+      trades: 28, 
+      winRate: 82.1, 
+      riskScore: 3.5, 
+      allocation: 12,
+      formula: 'Short = P > HOD \\land V < V_{avg} \\land \\Delta P < 0.1\\%'
+    },
+    { 
+      id: '7', 
+      name: 'SHORT: VWAP Slap', 
+      type: 'scalping', 
+      status: 'active', 
+      strategy: 'Scalping • 1-5min • VWAP Rejection + Volume Divergence', 
+      pnl: 267.89, 
+      trades: 35, 
+      winRate: 74.3, 
+      riskScore: 3.8, 
+      allocation: 8,
+      formula: 'Short = P_{reject} > VWAP \\land \\frac{V}{V_{avg}} < 0.7'
+    },
+    { 
+      id: '8', 
+      name: 'SHORT: Bear Flag Breakdown', 
+      type: 'day-trading', 
+      status: 'active', 
+      strategy: 'Day Trading • 5-30min • Flag Pattern + Trendline Break', 
+      pnl: 634.12, 
+      trades: 19, 
+      winRate: 78.9, 
+      riskScore: 2.9, 
+      allocation: 18,
+      formula: 'Short = P < TL_{break} \\land Flag_{confirmed} \\land V > 1.5V_{avg}'
+    },
+    { 
+      id: '9', 
+      name: 'SHORT: Supply Zone Rejection', 
+      type: 'smart-money', 
+      status: 'active', 
+      strategy: 'Swing Trading • 1H-1D • Historical Resistance Zones', 
+      pnl: 823.45, 
+      trades: 14, 
+      winRate: 85.7, 
+      riskScore: 2.6, 
+      allocation: 22,
+      formula: 'Short = P_{test} \\in Supply_{zone} \\land RSI > 70 \\land DI < 0'
+    },
+    { 
+      id: '10', 
+      name: 'SHORT: Liquidity Sweep Trap', 
+      type: 'smart-money', 
+      status: 'triggered', 
+      strategy: 'Smart Money • 15m-1H • Equal Highs Liquidity Grab', 
+      pnl: 589.34, 
+      trades: 11, 
+      winRate: 90.9, 
+      riskScore: 2.3, 
+      allocation: 16,
+      formula: 'Short = P > EH_{sweep} \\land OI_{decrease} \\land V_{spike}'
+    },
     { 
       id: '5', 
       name: 'SCALP: Micro Breakout Trap', 
@@ -235,6 +302,7 @@ export default function DashboardHome() {
       case 'active': return 'text-matrix-100 bg-matrix-500/20 border-matrix-100'
       case 'paused': return 'text-neon-orange bg-neon-orange/20 border-neon-orange'
       case 'error': return 'text-neon-pink bg-neon-pink/20 border-neon-pink'
+      case 'triggered': return 'text-neon-yellow bg-neon-yellow/20 border-neon-yellow'
       default: return 'text-gray-400 bg-gray-500/20 border-gray-400'
     }
   }
@@ -244,6 +312,7 @@ export default function DashboardHome() {
       case 'active': return <PlayCircle className="h-4 w-4" />
       case 'paused': return <PauseCircle className="h-4 w-4" />
       case 'error': return <AlertCircle className="h-4 w-4" />
+      case 'triggered': return <Zap className="h-4 w-4" />
       default: return <Activity className="h-4 w-4" />
     }
   }
@@ -583,7 +652,7 @@ export default function DashboardHome() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <GlowingCard className="h-full" glowColor={strategy.status === 'active' ? 'matrix-100' : 'neon-orange'}>
+                  <GlowingCard className="h-full" glowColor={strategy.status === 'active' ? 'matrix-100' : strategy.status === 'triggered' ? 'neon-yellow' : 'neon-orange'}>
                     <CardHeader className="pb-3">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
@@ -591,7 +660,7 @@ export default function DashboardHome() {
                           <span className="font-cyber text-sm text-neon-blue">{strategy.name}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <div className={`w-2 h-2 rounded-full animate-glow ${strategy.status === 'active' ? 'bg-matrix-100' : 'bg-neon-orange'}`} />
+                          <div className={`w-2 h-2 rounded-full animate-glow ${strategy.status === 'active' ? 'bg-matrix-100' : strategy.status === 'triggered' ? 'bg-neon-yellow' : 'bg-neon-orange'}`} />
                           {getStatusIcon(strategy.status)}
                         </div>
                       </div>

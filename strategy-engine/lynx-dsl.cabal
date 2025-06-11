@@ -22,6 +22,7 @@ library
       LynxDSL.Engine
       LynxDSL.Builder
       LynxDSL.Indicators
+      LynxDSL.ShortingStrategies
       
   other-modules:
       Paths_lynx_dsl

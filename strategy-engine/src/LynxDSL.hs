@@ -22,6 +22,14 @@
 -- >   `buyWhen` (rsi 14 .< 30) (percent 10) "Oversold Buy"
 -- >   `sellWhen` (rsi 14 .> 70) (percent 10) "Overbought Sell"
 --
+-- = Shorting Strategies
+--
+-- The DSL now includes comprehensive shorting strategies:
+--
+-- > shortStrategy = fakeBreakoutReversal "SPY Scalp" ["SPY", "QQQ"]
+-- > dayShorts = dayTradingShortStrategy "Day Shorts" ["TSLA"] 150.0
+-- > swingShorts = swingTradingShortStrategy "Swing Shorts" ["AAPL"] 180.0 185.0
+--
 -- = Strategy Evaluation
 --
 -- > signals <- evaluateStrategy myStrategy marketContext
@@ -47,6 +55,7 @@ module LynxDSL
     module LynxDSL.Types
   , module LynxDSL.Engine
   , module LynxDSL.Builder
+  , module LynxDSL.ShortingStrategies
     -- * Indicator Calculations (non-conflicting)
   , bollingerBands
   , calculateIndicator
@@ -64,6 +73,7 @@ module LynxDSL
 import LynxDSL.Types
 import LynxDSL.Engine
 import LynxDSL.Builder
+import LynxDSL.ShortingStrategies
 import LynxDSL.Indicators (bollingerBands, calculateIndicator, getPriceData)
 
 import Data.Text (Text)

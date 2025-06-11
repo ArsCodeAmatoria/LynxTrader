@@ -152,6 +152,146 @@ LynxTrader is a sophisticated AI-enhanced algorithmic trading platform that comb
     - Trend strength validation
     - Momentum confirmation
 
+## Advanced Backtesting Engine
+
+### Multi-Source Data Integration
+LynxTrader features a comprehensive backtesting engine that seamlessly integrates multiple data providers for robust strategy validation:
+
+- **yfinance**: Free historical market data for stocks, ETFs, and indices
+- **Alpaca Markets**: Professional-grade market data with real-time capabilities
+- **Alpha Vantage**: Premium fundamental and technical data
+- **Cryptocurrency Exchanges**: Real-time crypto data via CCXT library
+
+### Professional Analytics Suite
+The backtesting engine provides institutional-grade performance metrics:
+
+**Core Performance Metrics:**
+- Total Return and Annualized Return calculations
+- Maximum Drawdown analysis with duration tracking
+- Sharpe Ratio for risk-adjusted returns
+- Sortino Ratio focusing on downside volatility
+- Calmar Ratio (Annual Return / Max Drawdown)
+
+**Advanced Risk Analytics:**
+- Value at Risk (VaR) calculations at 95% confidence
+- Win Rate and Average Win/Loss analysis
+- Profit Factor and Risk-Reward ratios
+- Trade duration and frequency statistics
+- Capital efficiency measurements
+
+### Real-Time TensorBoard Integration
+Advanced visualization and monitoring capabilities:
+
+- **Live Equity Curves**: Real-time portfolio value tracking
+- **Strategy Performance Breakdown**: Individual strategy analytics
+- **Risk Metrics Dashboard**: Comprehensive risk monitoring
+- **Trade Analytics**: Detailed transaction analysis
+- **Confidence Scoring**: AI-driven strategy performance predictions
+
+### Database Persistence
+SQLite-based storage system for comprehensive backtesting history:
+
+**Backtest Runs Table:**
+```sql
+CREATE TABLE backtest_runs (
+    id INTEGER PRIMARY KEY,
+    strategy_name TEXT,
+    symbols TEXT,
+    start_date TEXT,
+    end_date TEXT,
+    initial_capital REAL,
+    final_value REAL,
+    total_return REAL,
+    max_drawdown REAL,
+    sharpe_ratio REAL,
+    trade_count INTEGER,
+    timestamp TEXT
+);
+```
+
+**Individual Trades Table:**
+```sql
+CREATE TABLE trades (
+    id INTEGER PRIMARY KEY,
+    backtest_id INTEGER,
+    symbol TEXT,
+    action TEXT,
+    quantity REAL,
+    price REAL,
+    timestamp TEXT,
+    commission REAL,
+    slippage REAL,
+    confidence_score REAL
+);
+```
+
+### Realistic Trading Simulation
+The engine implements professional-grade trading simulation:
+
+- **Transaction Costs**: 0.1% commission rate modeling
+- **Market Slippage**: 0.05% slippage simulation
+- **Position Sizing**: Kelly Criterion-based allocation
+- **Risk Management**: Leverage limits and drawdown protection
+- **Long/Short Capabilities**: Full support for shorting strategies
+
+### Command-Line Interface
+Multiple preset configurations for different testing scenarios:
+
+**Quick Test (Development)**
+```bash
+python run_backtest.py --preset quick
+# 30 days, 2 stocks, $10,000 capital
+```
+
+**Shorting Strategies (Production)**
+```bash
+python run_backtest.py --preset shorting
+# 6 months, 6 stocks, $100,000 capital
+```
+
+**Cryptocurrency Testing**
+```bash
+python run_backtest.py --preset crypto
+# 6 months, 3 crypto assets, $50,000 capital
+```
+
+**Comprehensive Analysis**
+```bash
+python run_backtest.py --preset comprehensive
+# 11 months, 8 assets, $100,000 capital
+```
+
+### Custom Configuration
+Flexible configuration system for advanced users:
+
+```python
+config = BacktestConfig(
+    symbols=['AAPL', 'GOOGL', 'MSFT'],
+    timeframes=['1h', '1d'],
+    start_date='2023-01-01',
+    end_date='2024-01-01',
+    initial_capital=100000,
+    data_source='yfinance',
+    commission_rate=0.001,
+    slippage_rate=0.0005,
+    max_leverage=2.0
+)
+```
+
+### Performance Optimization
+- **Async Data Fetching**: Parallel API calls for faster data collection
+- **Concurrent Processing**: ThreadPoolExecutor for multi-symbol analysis
+- **Memory Efficient**: Streaming data processing for large datasets
+- **Caching System**: Intelligent data caching to reduce API calls
+
+### Integration with Existing Strategies
+Seamless integration with LynxTrader's strategy ecosystem:
+
+- **Shorting Signals**: Direct integration with `shorting_signals.py`
+- **Risk Management**: Compatible with existing risk overlay systems
+- **Strategy Engine**: Works with Haskell strategy definitions
+- **AI Models**: Supports ML model integration for enhanced signals
+
 ## AI Risk Management System
 
 ### Adaptive Position Sizing
@@ -251,6 +391,10 @@ stack exec lynx-trader-exe
 cd ../python-ai
 pip install -r requirements.txt
 python main.py
+
+# Install backtesting dependencies
+cd ../ai-modules
+pip install -r requirements.txt
 ```
 
 ### Environment Configuration
@@ -352,7 +496,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### Q1 2024
 - [ ] Options trading strategies
 - [ ] Machine learning model integration
-- [ ] Advanced backtesting engine
+- [x] Advanced backtesting engine
 - [ ] Mobile application
 
 ### Q2 2024

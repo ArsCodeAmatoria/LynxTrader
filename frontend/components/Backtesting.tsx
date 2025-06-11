@@ -103,8 +103,12 @@ export default function Backtesting({ className = "" }: BacktestingProps) {
       setStrategies(strategiesData.strategies)
       setApiHealth(healthData)
     } catch (err: any) {
-      setError(err.message || 'Failed to load data')
-      console.error('Error loading data:', err)
+      // If API is not available, set default empty state instead of error
+      console.warn('API not available, using offline mode:', err)
+      setBacktests([])
+      setStrategies([])
+      setApiHealth(null)
+      setError(null) // Don't show error for API unavailability
     } finally {
       setLoading(false)
     }

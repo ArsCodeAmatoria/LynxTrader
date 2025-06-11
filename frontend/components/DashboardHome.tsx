@@ -33,10 +33,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { InlineMath, BlockMath } from 'react-katex'
 import 'katex/dist/katex.min.css'
 import CountUp from 'react-countup'
-import dynamic from 'next/dynamic'
-
-// Dynamically import Backtesting component to avoid SSR issues
-const Backtesting = dynamic(() => import('./Backtesting'), { ssr: false })
+import Backtesting from './Backtesting'
 
 interface TradeSummary {
   totalTrades: number

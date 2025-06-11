@@ -1,0 +1,108 @@
+{
+  "test_summary": {
+    "total_strategies_tested": 3,
+    "test_timestamp": "2025-06-11T11:28:45.417236",
+    "implementations_tested": [
+      "python_ai"
+    ],
+    "total_signals_generated": 223
+  },
+  "performance_summary": {
+    "by_implementation": {
+      "python_ai": {
+        "avg_signal_accuracy": 0.6454840173104799,
+        "avg_confidence": 0.7026748227009385,
+        "total_signals": 223,
+        "error_rate": 0.0
+      }
+    },
+    "overall_avg_accuracy": 0.6454840173104799,
+    "overall_avg_confidence": 0.7026748227009385,
+    "best_performing_strategy": "Smart Money Flow",
+    "most_reliable_implementation": "python_ai"
+  },
+  "strategy_results": [
+    {
+      "strategy_name": "Fake Breakout Reversal",
+      "implementation": "python_ai",
+      "timeframe": "1m, 5m, 15m",
+      "symbols": [
+        "AAPL",
+        "GOOGL",
+        "TSLA",
+        "SPY",
+        "QQQ"
+      ],
+      "test_duration": "7 days",
+      "total_signals": 179,
+      "signal_accuracy": 0.634869019417911,
+      "avg_confidence": 0.698519539820583,
+      "performance_metrics": {
+        "accuracy": 0.634869019417911,
+        "avg_confidence": 0.698519539820583,
+        "entry_signals": 179,
+        "monitor_signals": 0,
+        "signal_diversity": 1,
+        "confidence_std": 0.024705448227267616,
+        "avg_volume": 704761.0055865921
+      },
+      "error_count": 0,
+      "test_timestamp": "2025-06-11 11:28:44.974776"
+    },
+    {
+      "strategy_name": "Exhaustion Pattern",
+      "implementation": "python_ai",
+      "timeframe": "5m, 15m, 1h",
+      "symbols": [
+        "NVDA",
+        "AMD",
+        "META",
+        "MSFT"
+      ],
+      "test_duration": "7 days",
+      "total_signals": 34,
+      "signal_accuracy": 0.635226453326488,
+      "avg_confidence": 0.6906748547566249,
+      "performance_metrics": {
+        "accuracy": 0.635226453326488,
+        "avg_confidence": 0.6906748547566249,
+        "entry_signals": 34,
+        "monitor_signals": 0,
+        "signal_diversity": 1,
+        "confidence_std": 0.03209438474322003,
+        "avg_volume": 411947.79411764705
+      },
+      "error_count": 0,
+      "test_timestamp": "2025-06-11 11:28:45.309610"
+    },
+    {
+      "strategy_name": "Smart Money Flow",
+      "implementation": "python_ai",
+      "timeframe": "15m, 1h, 4h",
+      "symbols": [
+        "TSLA",
+        "AAPL",
+        "AMZN",
+        "NFLX"
+      ],
+      "test_duration": "7 days",
+      "total_signals": 10,
+      "signal_accuracy": 0.6663565791870407,
+      "avg_confidence": 0.7188300735256075,
+      "performance_metrics": {
+        "accuracy": 0.6663565791870407,
+        "avg_confidence": 0.7188300735256075,
+        "entry_signals": 10,
+        "monitor_signals": 0,
+        "signal_diversity": 1,
+        "confidence_std": 0.011861064663730951,
+        "avg_volume": 598504.8
+      },
+      "error_count": 0,
+      "test_timestamp": "2025-06-11 11:28:45.417078"
+    }
+  ],
+  "recommendations": [
+    "Overall strategy accuracy is below 70%. Consider tuning signal thresholds."
+  ]
+}

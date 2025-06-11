@@ -1,0 +1,243 @@
+{
+  "test_summary": {
+    "total_strategies_tested": 8,
+    "test_timestamp": "2025-06-11T11:29:07.037190",
+    "implementations_tested": [
+      "python_ai",
+      "haskell_dsl",
+      "backtest_engine"
+    ],
+    "total_signals_generated": 347
+  },
+  "performance_summary": {
+    "by_implementation": {
+      "python_ai": {
+        "avg_signal_accuracy": 0.5996251679213492,
+        "avg_confidence": 0.6971379751727351,
+        "total_signals": 266,
+        "error_rate": 0.0
+      },
+      "haskell_dsl": {
+        "avg_signal_accuracy": 0.7282963672309838,
+        "avg_confidence": 0.9035393804582214,
+        "total_signals": 81,
+        "error_rate": 0.0
+      },
+      "backtest_engine": {
+        "avg_signal_accuracy": 0.0,
+        "avg_confidence": 0.85,
+        "total_signals": 0,
+        "error_rate": 0.0
+      }
+    },
+    "overall_avg_accuracy": 0.4979705756821249,
+    "overall_avg_confidence": 0.8127540083616087,
+    "best_performing_strategy": "Smart Money Liquidity Sweep",
+    "most_reliable_implementation": "python_ai"
+  },
+  "strategy_results": [
+    {
+      "strategy_name": "Fake Breakout Reversal",
+      "implementation": "python_ai",
+      "timeframe": "1m, 5m, 15m",
+      "symbols": [
+        "AAPL",
+        "GOOGL",
+        "TSLA",
+        "SPY",
+        "QQQ"
+      ],
+      "test_duration": "7 days",
+      "total_signals": 230,
+      "signal_accuracy": 0.5468102172924607,
+      "avg_confidence": 0.698774758099509,
+      "performance_metrics": {
+        "accuracy": 0.5468102172924607,
+        "avg_confidence": 0.698774758099509,
+        "entry_signals": 230,
+        "monitor_signals": 0,
+        "signal_diversity": 1,
+        "confidence_std": 0.026149574625874358,
+        "avg_volume": 537836.0826086956
+      },
+      "error_count": 0,
+      "test_timestamp": "2025-06-11 11:29:00.904374"
+    },
+    {
+      "strategy_name": "Exhaustion Pattern",
+      "implementation": "python_ai",
+      "timeframe": "5m, 15m, 1h",
+      "symbols": [
+        "NVDA",
+        "AMD",
+        "META",
+        "MSFT"
+      ],
+      "test_duration": "7 days",
+      "total_signals": 26,
+      "signal_accuracy": 0.5905620211503518,
+      "avg_confidence": 0.6945389164330924,
+      "performance_metrics": {
+        "accuracy": 0.5905620211503518,
+        "avg_confidence": 0.6945389164330924,
+        "entry_signals": 26,
+        "monitor_signals": 0,
+        "signal_diversity": 1,
+        "confidence_std": 0.032724310816624975,
+        "avg_volume": 724694.5384615385
+      },
+      "error_count": 0,
+      "test_timestamp": "2025-06-11 11:29:01.239149"
+    },
+    {
+      "strategy_name": "Smart Money Flow",
+      "implementation": "python_ai",
+      "timeframe": "15m, 1h, 4h",
+      "symbols": [
+        "TSLA",
+        "AAPL",
+        "AMZN",
+        "NFLX"
+      ],
+      "test_duration": "7 days",
+      "total_signals": 10,
+      "signal_accuracy": 0.6615032653212349,
+      "avg_confidence": 0.6981002509856042,
+      "performance_metrics": {
+        "accuracy": 0.6615032653212349,
+        "avg_confidence": 0.6981002509856042,
+        "entry_signals": 10,
+        "monitor_signals": 0,
+        "signal_diversity": 1,
+        "confidence_std": 0.014566928428700419,
+        "avg_volume": 621340.6
+      },
+      "error_count": 0,
+      "test_timestamp": "2025-06-11 11:29:01.345623"
+    },
+    {
+      "strategy_name": "VWAP Bounce Scalper",
+      "implementation": "haskell_dsl",
+      "timeframe": "1m, 5m",
+      "symbols": [
+        "SPY",
+        "QQQ",
+        "IWM"
+      ],
+      "test_duration": "7 days",
+      "total_signals": 54,
+      "signal_accuracy": 0.6303570664791185,
+      "avg_confidence": 0.8623149914397267,
+      "performance_metrics": {
+        "accuracy": 0.6303570664791185,
+        "avg_confidence": 0.8623149914397267,
+        "sharpe_ratio": 2.1981671618610874,
+        "max_drawdown": 0.02552365133040903,
+        "win_rate": 0.6691271046454693,
+        "profit_factor": 2.3685557188455757
+      },
+      "error_count": 0,
+      "test_timestamp": "2025-06-11 11:29:01.345693"
+    },
+    {
+      "strategy_name": "Opening Range Breakout",
+      "implementation": "haskell_dsl",
+      "timeframe": "5m, 15m",
+      "symbols": [
+        "AAPL",
+        "TSLA",
+        "NVDA"
+      ],
+      "test_duration": "7 days",
+      "total_signals": 12,
+      "signal_accuracy": 0.7707823396954002,
+      "avg_confidence": 0.9356854979303412,
+      "performance_metrics": {
+        "accuracy": 0.7707823396954002,
+        "avg_confidence": 0.9356854979303412,
+        "sharpe_ratio": 2.1721644670025757,
+        "max_drawdown": 0.045892461923910624,
+        "win_rate": 0.6721475437926238,
+        "profit_factor": 2.223998550571143
+      },
+      "error_count": 0,
+      "test_timestamp": "2025-06-11 11:29:01.345722"
+    },
+    {
+      "strategy_name": "Smart Money Liquidity Sweep",
+      "implementation": "haskell_dsl",
+      "timeframe": "15m, 1h",
+      "symbols": [
+        "GOOGL",
+        "META",
+        "AMZN"
+      ],
+      "test_duration": "7 days",
+      "total_signals": 15,
+      "signal_accuracy": 0.7837496955184328,
+      "avg_confidence": 0.9126176520045962,
+      "performance_metrics": {
+        "accuracy": 0.7837496955184328,
+        "avg_confidence": 0.9126176520045962,
+        "sharpe_ratio": 1.9162243084362358,
+        "max_drawdown": 0.06039252475512119,
+        "win_rate": 0.7162815041926328,
+        "profit_factor": 2.469013987944496
+      },
+      "error_count": 0,
+      "test_timestamp": "2025-06-11 11:29:01.345829"
+    },
+    {
+      "strategy_name": "Multi-Source Backtest",
+      "implementation": "backtest_engine",
+      "timeframe": "1h, 1d",
+      "symbols": [
+        "AAPL",
+        "GOOGL",
+        "MSFT",
+        "TSLA"
+      ],
+      "test_duration": "7 days",
+      "total_signals": 0,
+      "signal_accuracy": 0,
+      "avg_confidence": 0.85,
+      "performance_metrics": {
+        "total_return": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0,
+        "trades_executed": 0,
+        "annual_return": 0.0,
+        "sharpe_ratio": 0.0
+      },
+      "error_count": 0,
+      "test_timestamp": "2025-06-11 11:29:04.237792"
+    },
+    {
+      "strategy_name": "Crypto Strategy Test",
+      "implementation": "backtest_engine",
+      "timeframe": "1h, 4h",
+      "symbols": [
+        "BTC-USD",
+        "ETH-USD",
+        "SOL-USD"
+      ],
+      "test_duration": "7 days",
+      "total_signals": 0,
+      "signal_accuracy": 0,
+      "avg_confidence": 0.85,
+      "performance_metrics": {
+        "total_return": 0.0,
+        "max_drawdown": 0.0,
+        "win_rate": 0,
+        "trades_executed": 0,
+        "annual_return": 0.0,
+        "sharpe_ratio": 0.0
+      },
+      "error_count": 0,
+      "test_timestamp": "2025-06-11 11:29:07.037104"
+    }
+  ],
+  "recommendations": [
+    "Overall strategy accuracy is below 70%. Consider tuning signal thresholds."
+  ]
+}

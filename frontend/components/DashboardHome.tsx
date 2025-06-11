@@ -33,6 +33,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { InlineMath, BlockMath } from 'react-katex'
 import 'katex/dist/katex.min.css'
 import CountUp from 'react-countup'
+import dynamic from 'next/dynamic'
+
+// Dynamically import Backtesting component to avoid SSR issues
+const Backtesting = dynamic(() => import('./Backtesting'), { ssr: false })
 
 interface TradeSummary {
   totalTrades: number
@@ -127,6 +131,7 @@ const GlowingCard = ({ children, className = "", glowColor = "neon-blue" }: { ch
 )
 
 export default function DashboardHome() {
+  const [activeView, setActiveView] = useState<'dashboard' | 'backtesting'>('dashboard')
   const [tradeSummary, setTradeSummary] = useState<TradeSummary>({
     totalTrades: 156,
     winRate: 73.2,
@@ -378,6 +383,41 @@ export default function DashboardHome() {
             </Badge>
           </div>
         </motion.div>
+
+        {/* Navigation */}
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex space-x-4 mb-6"
+        >
+          <Button
+            onClick={() => setActiveView('dashboard')}
+            variant={activeView === 'dashboard' ? "default" : "outline"}
+            className={activeView === 'dashboard' ? 
+              "bg-neon-blue/20 text-neon-blue border-neon-blue font-cyber" : 
+              "border-cyber-200/30 text-cyber-200 font-cyber hover:bg-neon-blue/10"
+            }
+          >
+            <Activity className="h-4 w-4 mr-2" />
+            LIVE_DASHBOARD
+          </Button>
+          <Button
+            onClick={() => setActiveView('backtesting')}
+            variant={activeView === 'backtesting' ? "default" : "outline"}
+            className={activeView === 'backtesting' ? 
+              "bg-matrix-100/20 text-matrix-100 border-matrix-100 font-cyber" : 
+              "border-cyber-200/30 text-cyber-200 font-cyber hover:bg-matrix-100/10"
+            }
+          >
+            <BarChart3 className="h-4 w-4 mr-2" />
+            BACKTESTING_ENGINE
+          </Button>
+        </motion.div>
+
+        {/* Main Content - Conditional Rendering */}
+        {activeView === 'dashboard' ? (
+          <div className="space-y-6">
 
         {/* Kelly Criterion Formula Display */}
         <GlowingCard className="mb-6" glowColor="crypto-400">
@@ -782,6 +822,11 @@ export default function DashboardHome() {
             </div>
           </div>
         </motion.div>
+          </div>
+        ) : (
+          /* Backtesting View */
+          <Backtesting />
+        )}
       </div>
     </div>
   )

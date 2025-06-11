@@ -16,6 +16,8 @@ import logging
 from typing import Dict, List, Any, Optional, Tuple
 import sqlite3
 from dataclasses import dataclass, asdict
+import matplotlib
+matplotlib.use('Agg')  # Use non-GUI backend for threading compatibility
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from collections import deque, defaultdict

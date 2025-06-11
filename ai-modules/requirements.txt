@@ -16,6 +16,7 @@ alpha-vantage>=2.3.1
 ccxt>=4.0.0
 alpaca-trade-api>=3.0.0
 python-binance>=1.0.17
+polygon-api-client>=1.0.0
 
 # Data Processing & Analysis
 scipy>=1.11.0

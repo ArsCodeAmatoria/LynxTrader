@@ -345,71 +345,78 @@ export default function DashboardHome() {
   }))
 
   return (
-    <div className="min-h-screen bg-cyber-gradient text-white relative overflow-hidden">
-      <MatrixRain />
-      <ScanLine />
+    <div className="min-h-screen bg-black text-white relative overflow-hidden">
       
       <div className="relative z-10 p-6 space-y-6">
-        {/* Cyber Header */}
+        {/* High Contrast Header */}
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex items-center justify-between"
+          className="flex items-center justify-between p-6 bg-gray-900 border-4 border-white rounded-xl shadow-2xl"
         >
-          <div className="space-y-2">
-            <h1 className="text-4xl font-cyber font-bold bg-gradient-to-r from-neon-blue via-neon-green to-neon-pink bg-clip-text text-transparent animate-glow">
-              LYNX_TRADER.EXE
+          <div className="space-y-3">
+            <h1 className="text-5xl font-black text-white drop-shadow-2xl">
+              LYNX TRADER
             </h1>
-            <p className="text-neon-blue font-mono text-sm animate-cyber-pulse">
-              &gt; QUANTUM_TRADING_MATRIX :: STATUS_ONLINE
+            <p className="text-2xl font-bold text-green-400">
+              STATUS: ONLINE
             </p>
-            <div className="flex gap-4 font-mono text-xs">
-              <span className="text-matrix-100">UPTIME: 99.7%</span>
-              <span className="text-neon-blue">LATENCY: 0.3ms</span>
-              <span className="text-neon-pink">SYNC: REALTIME</span>
+            <div className="flex gap-6 font-mono text-lg font-bold">
+              <span className="text-green-400 bg-black px-3 py-1 rounded border-2 border-green-400">UPTIME: 99.7%</span>
+              <span className="text-blue-400 bg-black px-3 py-1 rounded border-2 border-blue-400">LATENCY: 0.3ms</span>
+              <span className="text-yellow-400 bg-black px-3 py-1 rounded border-2 border-yellow-400">SYNC: REALTIME</span>
             </div>
           </div>
-          <div className="flex gap-3">
-            <Badge className="px-4 py-2 text-sm bg-matrix-500/20 text-matrix-100 border-matrix-100 animate-glow">
-              <Signal className="w-4 h-4 mr-2" />
-              NEURAL_LINK_ACTIVE
+          <div className="flex gap-4">
+            <Badge className="px-6 py-3 text-lg font-bold bg-green-600 text-white border-4 border-green-300 shadow-lg">
+              <Signal className="w-6 h-6 mr-3" />
+              NEURAL LINK ACTIVE
             </Badge>
-            <Badge className="px-4 py-2 text-sm bg-crypto-500/20 text-crypto-300 border-crypto-300 animate-glow">
-              <Brain className="w-4 h-4 mr-2" />
-              AI_RISK_ENGINE
+            <Badge className="px-6 py-3 text-lg font-bold bg-purple-600 text-white border-4 border-purple-300 shadow-lg">
+              <Brain className="w-6 h-6 mr-3" />
+              AI RISK ENGINE
             </Badge>
           </div>
         </motion.div>
 
-        {/* Navigation */}
+        {/* Navigation - High Contrast Version */}
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="flex space-x-4 mb-6"
+          className="mb-8 p-6 bg-black/90 border-4 border-white rounded-xl shadow-2xl"
         >
+          <div className="text-white mb-6 text-2xl font-bold text-center bg-gray-800 p-3 rounded">
+            Current View: <span className="text-yellow-400">{activeView.toUpperCase()}</span>
+          </div>
+          <div className="flex space-x-6 justify-center">
           <Button
-            onClick={() => setActiveView('dashboard')}
-            variant={activeView === 'dashboard' ? "default" : "outline"}
+            onClick={() => {
+              console.log('Dashboard button clicked')
+              setActiveView('dashboard')
+            }}
             className={activeView === 'dashboard' ? 
-              "bg-neon-blue/20 text-neon-blue border-neon-blue font-cyber" : 
-              "border-cyber-200/30 text-cyber-200 font-cyber hover:bg-neon-blue/10"
+              "bg-blue-600 text-white border-4 border-blue-300 hover:bg-blue-700 px-8 py-4 text-xl font-black shadow-lg transform transition-all duration-200 hover:scale-105" : 
+              "bg-gray-700 text-white border-4 border-gray-400 hover:bg-gray-600 px-8 py-4 text-xl font-black shadow-lg transform transition-all duration-200 hover:scale-105"
             }
           >
-            <Activity className="h-4 w-4 mr-2" />
-            LIVE_DASHBOARD
+            <Activity className="h-6 w-6 mr-3" />
+            LIVE DASHBOARD
           </Button>
           <Button
-            onClick={() => setActiveView('backtesting')}
-            variant={activeView === 'backtesting' ? "default" : "outline"}
+            onClick={() => {
+              console.log('Backtesting button clicked')
+              setActiveView('backtesting')
+            }}
             className={activeView === 'backtesting' ? 
-              "bg-matrix-100/20 text-matrix-100 border-matrix-100 font-cyber" : 
-              "border-cyber-200/30 text-cyber-200 font-cyber hover:bg-matrix-100/10"
+              "bg-green-600 text-white border-4 border-green-300 hover:bg-green-700 px-8 py-4 text-xl font-black shadow-lg transform transition-all duration-200 hover:scale-105" : 
+              "bg-gray-700 text-white border-4 border-gray-400 hover:bg-gray-600 px-8 py-4 text-xl font-black shadow-lg transform transition-all duration-200 hover:scale-105"
             }
           >
-            <BarChart3 className="h-4 w-4 mr-2" />
-            BACKTESTING_ENGINE
+            <BarChart3 className="h-6 w-6 mr-3" />
+            BACKTESTING ENGINE
           </Button>
+          </div>
         </motion.div>
 
         {/* Main Content - Conditional Rendering */}
